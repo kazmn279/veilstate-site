@@ -1,166 +1,170 @@
-<Index.html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Veil State — decode the signal and enter the Divide." />
-    <title>Veil State</title>
-    <style>
-        :root {
-            --bg-color: #000;
-            --panel: rgba(0,0,0,0.6);
-            --accent: #9fb;
-            --muted: #ddd;
-        }
-        html,body{height:100%;margin:0}
-        body{
-            font-family: system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-            background: var(--bg-color) url("assets/media/bg-veilstate.png") no-repeat center center fixed;
-            background-size: cover;
-            color: var(--muted);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            padding:1rem;
-            text-align:center;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            min-height:100vh;
-        }
-        .card{
-            background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.7));
-            border: 1px solid rgba(255,255,255,0.06);
-            padding:2rem;
-            border-radius:12px;
-            max-width:720px;
-            width:100%;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
-            backdrop-filter: blur(6px);
-        }
-        h1{margin:0 0 .25rem;font-size:2rem;letter-spacing:.14rem}
-        p{margin:.25rem 0 1rem;color:rgba(255,255,255,0.85)}
-        .controls{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
-        input[type="search"]{
-            background:var(--panel);
-            color:var(--muted);
-            border:1px solid rgba(255,255,255,0.06);
-            padding:.7rem .9rem;
-            border-radius:8px;
-            font-size:1rem;
-            width:220px;
-            outline: none;
-        }
-        button{
-            background:transparent;
-            color:var(--muted);
-            border:1px solid rgba(255,255,255,0.08);
-            padding:.7rem .9rem;
-            border-radius:8px;
-            cursor:pointer;
-            transition: all .15s ease;
-        }
-        button.primary{
-            background:linear-gradient(90deg,#1f2937 0%, #374151 100%);
-            color: #fff;
-            border: none;
-        }
-        button:hover{transform:translateY(-1px)}
-        .hint{font-size:.875rem;color:rgba(255,255,255,0.6);margin-top:.75rem}
-        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-        .msg{margin-top:.75rem;min-height:1.2rem}
-        @media(min-width:768px){
-            h1{font-size:2.75rem}
-            input[type="search"]{width:340px}
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veil State</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: url('veilstate-bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        overflow: hidden;
+    }
+
+    /* Dark overlay */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 1;
+        animation: staticShift 12s infinite alternate ease-in-out;
+    }
+
+    /* Background static drift */
+    @keyframes staticShift {
+        0% { backdrop-filter: blur(0px); }
+        100% { backdrop-filter: blur(1.5px); }
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        max-width: 650px;
+        padding: 40px;
+        text-align: center;
+        animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        animation: pulseEye 8s infinite ease-in-out;
+    }
+
+    /* Eye pulse animation */
+    @keyframes pulseEye {
+        0%, 100% { text-shadow: 0 0 8px rgba(255,255,255,0.2); }
+        50% { text-shadow: 0 0 18px rgba(255,255,255,0.45); }
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 1.05rem;
+    }
+
+    /* Framed form */
+    .form-container {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        padding: 25px;
+        margin-top: 30px;
+        backdrop-filter: blur(3px);
+        animation: silhouetteDrift 10s infinite alternate ease-in-out;
+    }
+
+    /* Silhouette drift */
+    @keyframes silhouetteDrift {
+        0% { transform: translateX(0px) scale(1); }
+        100% { transform: translateX(6px) scale(1.02); }
+    }
+
+    input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(0, 0, 0, 0.4);
+        color: #fff;
+        font-size: 1rem;
+    }
+
+    input[type="email"]::placeholder {
+        color: #cccccc;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #ffffff;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 1px;
+        transition: 0.2s ease;
+    }
+
+    button:hover {
+        background: #d6d6d6;
+    }
+
+    .note {
+        margin-top: 10px;
+        font-size: 0.85rem;
+        opacity: 0.7;
+    }
+
+    @media (max-width: 600px) {
+        h1 { font-size: 1.8rem; }
+        p { font-size: 1rem; }
+    }
+</style>
 </head>
+
 <body>
-    <main class="card" role="main">
-        <h1>VEIL STATE</h1>
-        <p>Decode the signal. Enter the Divide.</p>
+<div class="overlay"></div>
 
-        <div class="controls" role="form" aria-labelledby="formLabel">
-            <label id="formLabel" class="sr-only" for="codeInput">Cipher code</label>
-            <input id="codeInput" type="search" inputmode="latin" autocomplete="off" placeholder="Enter cipher code" aria-describedby="hint" />
-            <button id="unlockBtn" class="primary" type="button">Unlock</button>
-            <button id="clearBtn" type="button" aria-label="Clear code">Clear</button>
-        </div>
+<div class="content">
+    <h1>THE SIGNAL IS ACTIVE</h1>
 
-        <div id="msg" class="msg" aria-live="polite"></div>
-        <div id="hint" class="hint">Codes are case-insensitive and alphanumeric.</div>
-    </main>
+    <p>Something beneath the surface has begun to move.<br>
+    The eye is open.<br>
+    The perimeter is thinning.</p>
 
-    <noscript>
-        <style> .card{opacity:0.95} </style>
-        <div style="position:fixed;left:1rem;right:1rem;bottom:1rem;background:#111;padding:.6rem;border-radius:8px;color:#fff;text-align:center">
-            JavaScript is required to decode the signal. Please enable JavaScript.
-        </div>
-    </noscript>
+    <p>You weren’t meant to see this transmission.<br>
+    Not yet.<br>
+    Not like this.</p>
 
-    <script>
-        // Accessible, safe mapping-based navigation
-        (function () {
-            const input = document.getElementById('codeInput');
-            const btn = document.getElementById('unlockBtn');
-            const clear = document.getElementById('clearBtn');
-            const msg = document.getElementById('msg');
+    <p>But the fractures are widening,<br>
+    and the first pieces of the story<br>
+    are already slipping through the static.</p>
 
-            // canonical internal routes (no open redirect risk)
-            const routes = {
-                veil2025: '/lore/intro.html',
-                factionx: '/lore/factions.html',
-                freebook: '/shop/checkout.html?discount=cipherwinner'
-            };
+    <p>The book is close.<br>
+    The universe is waking.<br>
+    And once it starts,<br>
+    it won’t stop.</p>
 
-            function normalize(value) {
-                // keep only letters and numbers, limit length
-                return (value || '')
-                    .toString()
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]/g, '')
-                    .slice(0, 32);
-            }
+    <div class="form-container">
+        <h2>Stay in the Loop</h2>
+        <p>Enter your email to receive early transmissions, hidden drops, and first access to the Veil State ARG.</p>
 
-            function showMessage(text, ok = true) {
-                msg.textContent = text;
-                msg.style.color = ok ? '#9fb' : '#f88';
-            }
+        <form name="veilstate-signup" method="POST" data-netlify="true" action="/thankyou">
+	   <input type="hidden" name="form-name" value="veilstate-signup">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Join the Signal</button>
+        </form>
 
-            function attemptUnlock() {
-                const code = normalize(input.value.trim());
-                if (!code) {
-                    showMessage('Please enter a code.', false);
-                    input.focus();
-                    return;
-                }
-                if (routes.hasOwnProperty(code)) {
-                    showMessage('Decoding... Redirecting...');
-                    // small delay improves perceived feedback
-                    setTimeout(() => {
-                        // final navigation stays within same origin
-                        window.location.href = routes[code];
-                    }, 300);
-                } else {
-                    showMessage('Incorrect code. Try again.', false);
-                    input.select();
-                }
-            }
+        <div class="note">No spam. No noise. Only signal.</div>
+    </div>
+</div>
 
-            // events
-            btn.addEventListener('click', attemptUnlock);
-            clear.addEventListener('click', () => { input.value = ''; input.focus(); showMessage(''); });
-
-            // submit on Enter
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    attemptUnlock();
-                }
-            });
-
-            // auto-focus on page load (user-friendly)
-            window.addEventListener('load', () => input.focus());
-        })();
-    </script>
 </body>
 </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transmission Confirmed</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: url('veilstate-bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        overflow: hidden;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 1;
+        animation: ambient 14s infinite alternate ease-in-out;
+    }
+
+    @keyframes ambient {
+        0% { backdrop-filter: blur(0px); }
+        100% { backdrop-filter: blur(2px); }
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        max-width: 650px;
+        padding: 40px;
+        text-align: center;
+        animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 1.05rem;
+    }
+
+    .clue {
+        margin-top: 40px;
+        font-size: 0.75rem;
+        opacity: 0.2;
+        letter-spacing: 2px;
+        font-family: monospace;
+    }
+</style>
+</head>
+
+<body>
+<div class="overlay"></div>
+
+<div class="content">
+    <h1>THE TRANSMISSION IS CONFIRMED</h1>
+
+    <p>Your signal has been received.<br>
+    The system registered your presence faster than expected.<br>
+    That’s… unusual.</p>
+
+    <p>Most people never make it this far.<br>
+    Most people never even notice the eye watching back.<br>
+    But you did.</p>
+
+    <p>In the coming days, you’ll receive the first fragments —<br>
+    leaks, distortions, recovered packets,<br>
+    and the earliest coordinates of the Veil State breach.</p>
+
+    <p>Stay alert.<br>
+    Stay unseen.<br>
+    Stay ready.</p>
+
+    <p>A fracture is forming,<br>
+    and you’re now inside the perimeter.</p>
+
+    <div class="clue">00110010 00110111 00110001 00110110</div>
+</div>
+
+</body>
+</html>
