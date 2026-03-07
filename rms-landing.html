@@ -1,37 +1,87 @@
-<div class="rhino-logo">
-  <div class="r-letter">R</div>
-  <div class="rhino-shape"></div>
-</div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Merchant Services Solutions</title>
 <style>
-.rhino-logo {
-    position: relative;
-    display: inline-block;
-    width: 180px;
-    height: 180px;
-}
-
-.r-letter {
-    font-size: 180px;
-    font-weight: 900;
-    font-family: Arial Black, Impact, sans-serif;
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    line-height: 1;
-}
-
-.rhino-shape {
-    position: absolute;
-    right: 10px;
-    top: 45px;
-    width: 70px;
-    height: 70px;
-    background: black;
-    clip-path: polygon(
-        0% 40%, 20% 20%, 40% 10%, 60% 20%, 80% 40%,
-        100% 60%, 80% 80%, 60% 90%, 40% 80%, 20% 60%
-    );
-}
+    body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 20px;
+    }
+    .wrap {
+        max-width: 600px;
+        width: 100%;
+    }
+    .points {
+        text-align: left;
+        margin: 20px auto;
+        max-width: 450px;
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+    .points li {
+        margin-bottom: 10px;
+    }
+    input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #00c853;
+        border: none;
+        border-radius: 6px;
+        color: #000;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    button:hover {
+        background: #00e676;
+    }
 </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- Banner Logo -->
+    <img src="YOUR-LOGO-FILENAME.jpeg" 
+         alt="Real Merchant Services Logo" 
+         style="width:100%; max-width:420px; margin-bottom:20px;">
+
+    <ul class="points">
+        <li>Drastically reduce — or eliminate — your credit card processing fees.</li>
+        <li>No contracts. No termination fees. Free equipment.</li>
+        <li>Track every fee, every dollar, every time — no confusion.</li>
+        <li>Take payments like a pro — no terminal needed.</li>
+        <li>PCI Compliance + Chargeback white‑glove support.</li>
+        <li>Affordable, flexible processing for every type of business.</li>
+    </ul>
+
+    <p style="margin:20px 0 10px; font-size:1.1rem; opacity:0.9;">
+        Enter your email and we’ll contact you directly.
+    </p>
+
+    <form action="mailto:keitha5807@gmail.com" method="POST" enctype="text/plain">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit">Contact Me</button>
+    </form>
+
+</div>
+</body>
+</html>
