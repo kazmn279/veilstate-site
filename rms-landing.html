@@ -22,6 +22,15 @@
         max-width: 600px;
         width: 100%;
     }
+
+    /* Make sure the logo stays centered and scales cleanly */
+    .banner-logo {
+        width: 100%;
+        max-width: 840px; /* doubled from 420px */
+        margin: 0 auto 20px auto;
+        display: block;
+    }
+
     .points {
         text-align: left;
         margin: 20px auto;
@@ -59,10 +68,10 @@
 <body>
 <div class="wrap">
 
-    <!-- Banner Logo -->
+    <!-- Banner Logo (double size, centered) -->
     <img src="logo.jpg" 
          alt="Real Merchant Services Logo" 
-         style="width:100%; max-width:420px; margin-bottom:20px;">
+         class="banner-logo">
 
     <ul class="points">
         <li>Drastically reduce — or eliminate — your credit card processing fees.</li>
